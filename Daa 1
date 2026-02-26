@@ -3,7 +3,8 @@
 
 int main()
 {
-    int n, i, x, arr[100000];
+    int n, i, x, arr[10000];   // Turbo C safe size
+    int r, repeat = 1000;      // repeat search to measure time
     clock_t start, end;
     double time_taken;
 
@@ -18,19 +19,21 @@ int main()
 
     start = clock();
 
-    for(i = 0; i < n; i++)
+    for(r = 0; r < repeat; r++)
     {
-        if(arr[i] == x)
+        for(i = 0; i < n; i++)
         {
-            printf("Element found at index %d\n", i);
-            break;
+            if(arr[i] == x)
+                break;
         }
     }
 
+    end = clock();
+
     if(i == n)
         printf("Element not found\n");
-
-    end = clock();
+    else
+        printf("Element found at index %d\n", i);
 
     time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
