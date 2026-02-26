@@ -24,23 +24,27 @@ int binarySearch(int arr[], int low, int high, int x)
 
 int main()
 {
-    int n, i, x, arr[100000];
+    int n, i, x, arr[10000];   // reduced size for Turbo C
+    int r, repeat = 1000;      // repeat search to measure time
+    int result = -1;
     clock_t start, end;
     double time_taken;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    // Sorted array (required for binary search)
     for (i = 0; i < n; i++)
-        arr[i] = i + 1;
+        arr[i] = i + 1;   // sorted array
 
     printf("Enter element to search: ");
     scanf("%d", &x);
 
     start = clock();
 
-    int result = binarySearch(arr, 0, n - 1, x);
+    for(r = 0; r < repeat; r++)
+    {
+        result = binarySearch(arr, 0, n - 1, x);
+    }
 
     end = clock();
 
