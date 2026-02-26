@@ -33,7 +33,8 @@ void search(char pat[], char txt[])
     int m = strlen(pat);
     int n = strlen(txt);
 
-    int lps[m];
+    int lps[100];   // fixed size array (Turbo C safe)
+
     computeLPS(pat, m, lps);
 
     int i = 0, j = 0;
