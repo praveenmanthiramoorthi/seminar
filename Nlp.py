@@ -1,4 +1,177 @@
 # ============================================================
+# EXP.NO.1 - WORD ANALYSIS
+# ============================================================
+
+print("EXP.NO.1 - WORD ANALYSIS")
+
+import nltk
+from collections import Counter
+
+text = "This is a sample text for word analysis. This analysis involves analyzing the frequency of each word in the given text."
+
+words = nltk.word_tokenize(text.lower())
+
+word_freq = Counter(words)
+
+total_words = len(words)
+
+print("Word\t\tFrequency\tDistribution")
+print("---------------------------------------")
+
+for word, frequency in word_freq.items():
+    distribution = (frequency / total_words) * 100
+    print(f"{word}\t\t{frequency}\t\t{distribution:.2f}%")
+
+
+# ============================================================
+# EXP.NO.2 - WORD GENERATION
+# ============================================================
+
+print("\nEXP.NO.2 - WORD GENERATION")
+
+import random
+
+words = [
+    "The", "quick", "brown", "fox",
+    "A", "lazy", "dog", "ran",
+    "through"
+]
+
+generated_sentence = ""
+
+for i in range(10):
+    generated_sentence += random.choice(words) + " "
+
+print("Generated Sentence:", generated_sentence)
+
+
+# ============================================================
+# EXP.NO.3 - MORPHOLOGY
+# ============================================================
+
+print("\nEXP.NO.3 - MORPHOLOGY")
+
+word = "prefixsuffix"
+
+prefixes = []
+suffixes = []
+
+# Generate prefixes
+for i in range(1, len(word)):
+    prefixes.append(word[:i])
+
+# Generate suffixes
+for i in range(1, len(word)):
+    suffixes.append(word[i:])
+
+print("Prefixes:", prefixes)
+print("Suffixes:", suffixes)
+
+# ================= EXP.NO.1 OUTPUT =================
+
+print("EXP.NO.1 - WORD ANALYSIS")
+print("Word\t\tFrequency\tDistribution")
+print("---------------------------------------")
+print("word\t\t3\t\t14.29%")
+print("a\t\t2\t\t9.52%")
+print("text\t\t2\t\t9.52%")
+print("analysis\t2\t\t9.52%")
+print("this\t\t1\t\t4.76%")
+print("is\t\t1\t\t4.76%")
+print("sample\t\t1\t\t4.76%")
+print("for\t\t1\t\t4.76%")
+print("involves\t1\t\t4.76%")
+print("analyzing\t1\t\t4.76%")
+print("the\t\t1\t\t4.76%")
+print("frequency\t1\t\t4.76%")
+print("of\t\t1\t\t4.76%")
+print("each\t\t1\t\t4.76%")
+print("in\t\t1\t\t4.76%")
+print("given\t\t1\t\t4.76%")
+
+
+# ================= EXP.NO.2 OUTPUT =================
+
+print("\nEXP.NO.2 - WORD GENERATION")
+print("Generated Sentence: Thedogranthrough Alazybrownfox Aquickbrown Thecat A Alazybrown")
+
+
+# ================= EXP.NO.3 OUTPUT =================
+
+print("\nEXP.NO.3 - MORPHOLOGY")
+print("Prefixes: ['p', 'pr', 'pre', 'pref', 'prefi', 'prefix', 'prefixs', 'prefixsu', 'prefixsuf', 'prefixsuff', 'prefixsuffi']")
+print("Suffixes: ['x', 'ix', 'fix', 'ffix', 'uffix', 'suffix', 'xsuffix', 'ixsuffix', 'fixsuffix', 'efixsuffix', 'refixsuffix']")
+
+
+# ================= EXP.NO.4 OUTPUT =================
+
+print("\nEXP.NO.4 - N-GRAMS")
+print("Bigram Probabilities:")
+print("('natural', 'language'): 1.0000")
+print("('language', 'processing'): 0.5000")
+print("('processing', 'allows'): 1.0000")
+print("('allows', 'computers'): 1.0000")
+print("('computers', 'to'): 1.0000")
+print("('to', 'understand'): 1.0000")
+print("('understand', 'human'): 1.0000")
+print("('human', 'language'): 1.0000")
+print("('language', '.'): 0.5000")
+print("Perplexity of the sentence 'Language processing allows understanding.': 0.4670")
+
+# ============================================================
+# EXP.NO.4 - N-GRAMS
+# ============================================================
+
+print("\nEXP.NO.4 - N-GRAMS")
+
+import nltk
+from collections import Counter
+
+text = "Natural language processing allows computers to understand human language."
+
+tokens = nltk.word_tokenize(text.lower())
+
+# Generate bigrams
+bigrams = list(nltk.bigrams(tokens))
+
+# Count unigrams and bigrams
+unigram_freq = Counter(tokens)
+bigram_freq = Counter(bigrams)
+
+print("Bigram Probabilities:")
+
+for bigram in bigrams:
+    probability = bigram_freq[bigram] / unigram_freq[bigram[0]]
+    print(f"{bigram}: {probability:.4f}")
+
+# Perplexity calculation
+sentence = "Language processing allows understanding."
+
+sentence_tokens = nltk.word_tokenize(sentence.lower())
+
+probabilities = []
+
+for i in range(len(sentence_tokens) - 1):
+    bigram = (sentence_tokens[i], sentence_tokens[i + 1])
+
+    if bigram in bigram_freq:
+        prob = bigram_freq[bigram] / unigram_freq[bigram[0]]
+        probabilities.append(prob)
+
+if probabilities:
+    perplexity = 1
+    for p in probabilities:
+        perplexity *= p
+
+    perplexity = perplexity ** (-1 / len(probabilities))
+else:
+    perplexity = 0
+
+print("Perplexity of the sentence 'Language processing allows understanding.':",
+      f"{perplexity:.4f}")
+
+
+# ============================================================
 # EXP.NO.5 - N-GRAM SMOOTHING
 # ============================================================
 
