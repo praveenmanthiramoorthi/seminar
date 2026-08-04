@@ -1,0 +1,65 @@
+EXPERIMENT 7 – BIVARIATE AND MULTIVARIATE STATISTICAL ANALYSIS
+
+AIM
+
+To analyze the given dataset using Bivariate and Multivariate Statistical Analysis.
+
+ALGORITHM
+
+Bivariate Analysis – Scatter Plot
+
+1. Open the dataset in Excel.
+
+
+2. Go to Data → Data Analysis.
+
+
+3. Select Bivariate Analysis.
+
+
+4. Select two variables, Study Hours and Marks.
+
+
+5. Select Scatter Plot.
+
+
+6. Select the input range.
+
+
+7. Choose the output range or new worksheet.
+
+
+8. Click OK.
+
+
+9. Observe the scatter plot and identify the relationship between the variables.
+
+
+
+Multivariate Analysis – PCA 10. Select three variables: Study Hours, Attendance and Marks. 11. Go to Data → Data Analysis. 12. Select Multivariate Analysis / PCA. 13. Select the input range. 14. Choose the output range or new worksheet. 15. Click OK. 16. Observe the PCA output and identify the major components.
+
+SAMPLE DATASET
+
+Study Hours	Attendance	Marks
+
+2	65	45
+3	70	52
+4	75	60
+5	80	68
+6	85	75
+7	90	82
+8	92	88
+9	95	93
+
+
+OUTPUT
+
+Bivariate Analysis:
+Scatter plot of Study Hours vs Marks showing a positive relationship.
+
+Multivariate Analysis:
+PCA output for Study Hours, Attendance and Marks, showing the principal components and the variation explained by them.
+
+RESULT
+
+Thus, Bivariate and Multivariate Statistical Analysis was successfully performed on the given dataset using Scatter Plot and PCA, and the relationships and patterns among the variables were identified. 
